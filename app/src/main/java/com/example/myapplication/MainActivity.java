@@ -20,6 +20,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String EDIT_VIEW_INITIAL_MESSAGE = "Text";
+    private static final String TRANSLATED_VIEW_INITIAL_MESSAGE = "Translation";
     private Spinner spinner2;
     private Button button;
     private TextView textView, editText;
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (editText.getText().toString().equals("Text"))
+                if (editText.getText().toString().equals(EDIT_VIEW_INITIAL_MESSAGE))
                     editText.setText("");
             }
         });
@@ -78,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                textView.setText(((Cipher) spinner2.getSelectedItem()).translate(editText.getText().toString()));
+                updateTranslatedView();
             }
         });
         editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if (editText.getText().toString().equals("Text"))
+                if (editText.getText().toString().equals(EDIT_VIEW_INITIAL_MESSAGE))
                     editText.setText("");
             }
         });
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(((Cipher) spinner2.getSelectedItem()).translate(editText.getText().toString()));
+                updateTranslatedView();
             }
 
         });
@@ -100,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                textView.setText(((Cipher) spinner2.getSelectedItem()).translate(editText.getText().toString()));
+                if(!textView.getText().toString().equals(TRANSLATED_VIEW_INITIAL_MESSAGE))
+                    updateTranslatedView();
             }
 
             @Override
@@ -108,6 +111,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void updateTranslatedView() {
+        textView.setText(((Cipher) spinner2.getSelectedItem()).translate(editText.getText().toString()));
     }
 }
 
