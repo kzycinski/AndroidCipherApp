@@ -114,7 +114,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateTranslatedView() {
-        textView.setText(((Cipher) spinner2.getSelectedItem()).translate(editText.getText().toString()));
+        try {
+            textView.setText(((Cipher) spinner2.getSelectedItem()).translate(editText.getText().toString()));
+        } catch (IllegalArgumentException e) {
+            editText.setError(e.getMessage());
+        }
     }
 }
 
