@@ -18,7 +18,7 @@ public class MorseCipher extends Cipher {
 
     @Override
     public String translate(String word) throws IllegalArgumentException{
-        if(word == null || word == "")
+        if(word == null || word.equals(""))
             return "";
 
         if (word.charAt(0) == ' ' || word.charAt(0) == '.' || word.charAt(0) == '-')
@@ -60,10 +60,15 @@ public class MorseCipher extends Cipher {
         for(String string : input.split(" ")) {
             Character result = reverseMorseCode.get(string);
             if (result == null)
-                throw new IllegalArgumentException("Znak: " + string + " nie jest obsługiwany, zastąp go lub skontaktuj się z administratorem");
+                throw new IllegalArgumentException("Błędny znak:" + string);
             else
                 stringBuilder.append(result);
         }
         return stringBuilder.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Alfabet Morse'a";
     }
 }

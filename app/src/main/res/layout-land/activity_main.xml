@@ -25,13 +25,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="373dp"
-        android:layout_height="306dp"
+        android:layout_width="332dp"
+        android:layout_height="256dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="8dp"
         android:gravity="top"
         android:scrollbars="vertical"
         android:text="Tłumaczenie"
@@ -41,17 +42,20 @@
         android:textSize="52sp"
         android:textStyle="bold"
         android:typeface="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_rfal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.277" />
 
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="373dp"
-        android:layout_height="306dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="332dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="start"
@@ -61,10 +65,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textSize="52sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cipherSpinner"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.277" />
 
     <Button
         android:id="@+id/button2"
@@ -87,8 +92,8 @@
         android:layout_height="match_parent"
         rfal:rfal_frame_alpha="0.7"
         rfal:rfal_frame_color="#ffffff"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="-75dp"
+        tools:layout_editor_absoluteY="-34dp">
 
         <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton xmlns:rfab="http://schemas.android.com/apk/res-auto"
             android:id="@+id/activity_main_rfab"

@@ -38,4 +38,9 @@ public class MorseCipherTest {
         Assert.assertEquals(".- -... -.-. / .- -... -.-. ", morseCipher.translate("abc abc"));
     }
 
+    @Test
+    public void testMorseCodeEncodeWithEnter() {
+        Assert.assertEquals(".- -... -.-. // .- -... -.-. ", morseCipher.translate("abc\u2386abc"));
+    }
+
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:name="actionOverflowMenuStyle"
+        android:theme="@style/OverflowMenu"
+        android:title="@string/przywroc_domyslne_szyfry"
+        android:id="@+id/default_item"
+       />
+</menu>
